@@ -1,0 +1,22 @@
+server:
+  port: 9001
+spring: #服务名称,spring cloud才有用
+  application:
+    name: microservice-user
+  datasource:
+    url: jdbc:mysql://3.134.245.121:3333/springcloud?characterEncoding=UTF8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: password
+  jpa:
+    show-sql: true #是否显示sql语句
+    generate-ddl: true #是否自动建表
+    database: mysql #jpa连接的数据库类型
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url: #客户端注册地址
+      defaultZone: http://127.0.0.1:8888/eureka,http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true #优先使用该服务的ip地址注册到eureka，在生产环境建议true

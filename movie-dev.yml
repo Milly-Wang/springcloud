@@ -1,0 +1,16 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: microservice-movie
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url: #客户端注册地址
+      defaultZone: http://127.0.0.1:8888/eureka,http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true #优先使用该服务的ip地址注册到eureka，在生产环境建议true
+  feign:
+    hystrix:
+      enabled: true
